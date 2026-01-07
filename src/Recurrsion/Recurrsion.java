@@ -52,6 +52,13 @@ public class Recurrsion {
         // Include current character
         generateSubsets(s, currentIndex + 1, length, subsetString + s.charAt(currentIndex));
     }
+
+    // good problem revise it   https://www.geeksforgeeks.org/dsa/josephus-problem/
+    int  josephusProblem(int n, int k) {
+         if (n == 1) return 0;
+
+         return (josephusProblem(n-1, k) + k)%n ;
+    }
     public void main(String[] args) {
 
 //         func(3);
@@ -65,7 +72,9 @@ public class Recurrsion {
 
 //        System.out.println(MaxRopeCutting(2,2,2,2));
 
-        generateSubsets("abc", 0, 3, "");
+//        generateSubsets("abc", 0, 3, "");
+
+        System.out.println(josephusProblem(2,3) + 1);
 
 
     }
