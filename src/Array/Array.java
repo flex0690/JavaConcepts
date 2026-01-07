@@ -19,8 +19,8 @@ public class Array {
     void SecondLargestElementInArray() {
         List<Integer> arr = new ArrayList<>(List.of(4, 2, 32, 4, 4, 2, 2, 4));
 
-        int largest = arr.get(0);
-        int secondLargest = arr.get(0);
+        int largest = arr.getFirst();
+        int secondLargest = arr.getFirst();
 
         for (int i = 1; i < arr.size(); i++) {
             if (arr.get(i)>largest) {
