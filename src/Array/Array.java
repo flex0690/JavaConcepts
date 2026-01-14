@@ -109,11 +109,36 @@ public class Array {
         Collections.reverse(arr);
 
         System.out.println(arr);
+    }
 
+    int returnMaxDifference(int i, int j, List<Integer> arr) {
+        // Base case: j went out of bounds
+        if (j >= arr.size()) {
+            return Integer.MIN_VALUE;
+        }
 
+        // Base case: i caught up to j (no valid pair)
+        if (i >= j) {
+            return Integer.MIN_VALUE;
+        }
 
+        // Current difference
+        int currentDifference = arr.get(j) - arr.get(i);
+
+        // Try: move i forward OR move j forward
+        int moveI = returnMaxDifference(i + 1, j, arr);
+        int moveJ = returnMaxDifference(i, j + 1, arr);
+
+        return Math.max(currentDifference, Math.max(moveI, moveJ));
+    }
+    void maxDifference() {
+        // find the maximum difference such that, j > i
+        List<Integer> arr = new ArrayList<>(List.of(4,3,2,1));
+
+        System.out.println(returnMaxDifference(0,1,arr));
 
     }
+
 
 
 
@@ -128,6 +153,8 @@ public class Array {
 
 //        moveAllZeroesToEnd();
 
-        rotateArrayByDPlace();
+//        rotateArrayByDPlace();
+
+        maxDifference();
     }
 }
