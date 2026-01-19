@@ -42,10 +42,45 @@ public class Hashing {
         }
     }
 
+    static void intersectionOfTwoArray() {
+        int [] arr1 = {1,2,2,1};
+        int [] arr2 = {2,2};
+
+        HashSet<Integer> hash = new HashSet<>();
+
+        HashMap<Integer, Integer> h1 = new HashMap<>();
+
+        for(int i =0 ; i < arr1.length ; i++) {
+            h1.put(arr1[i], h1.getOrDefault(arr1[i],0) + 1);
+        }
+
+        for(int i =0 ; i < arr2.length ; i++) {
+            if(h1.containsKey(arr2[i])) {
+                hash.add(arr2[i]);
+            }
+        }
+
+       int [] ans = new int[hash.size()];
+
+        Iterator<Integer> iterator = hash.iterator();
+
+        for(int i =0 ; i < ans.length ; i++) {
+            ans[i] = iterator.next();
+        }
+
+
+        for (int i = 0; i < ans.length; i++) {
+            System.out.println(ans[i]);
+        }
+
+    }
+
 
     public static void main(String[] args) {
 //        hashSetBasic();
 
-        hashMapBasic();
+//        hashMapBasic();
+
+        intersectionOfTwoArray();
     }
 }
