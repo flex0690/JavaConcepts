@@ -40,6 +40,7 @@ public class Hashing {
         for(Map.Entry<String, Integer> entry : hash.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
+
     }
 
     static void intersectionOfTwoArray() {
