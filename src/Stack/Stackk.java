@@ -42,7 +42,39 @@ public class Stackk {
         return myStack.isEmpty();
     }
 
+    public void stockSpanProblem() { //gfg  good problem
+        // next greater element variation
+
+//        int [] arr = {60,10,20,40,35,38,50,70,65};
+        int [] arr = {5,4,3,2,1};
+
+        ArrayDeque<Integer> myStack = new ArrayDeque<>();
+
+        System.out.println(1);
+        myStack.add(0);
+
+        for(int i=1; i< arr.length ; i++) {
+            if (!myStack.isEmpty() && arr[myStack.peekLast()] > arr[i]) {
+                System.out.println(i - myStack.peekLast());
+                myStack.add(i);
+            } else {
+                while( !myStack.isEmpty() && arr[i] > arr[myStack.peekLast()] ) {
+                    myStack.removeLast();
+                }
+                if (myStack.isEmpty()) {
+                    System.out.println(i+1);
+                    myStack.add(i);
+                } else {
+                    System.out.println(i - myStack.peekLast());
+                    myStack.add(i);
+                }
+            }
+        }
+    }
+
+
     public  void main(String[] args) {
-        basicOfStack();
+//        basicOfStack();
+        stockSpanProblem();
     }
 }
